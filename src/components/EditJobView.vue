@@ -61,7 +61,7 @@ const handleSubmit = async() => {
 // function to fetch the job detail by id
 const getJobById = async () => {
     try {
-        const response = await axios.get(`${apiUrl}/api/jobs/${jobId}`)
+        const response = await axios.get(`/api/jobs/${jobId}`)
         state.job = response.data
         form.type = state.job.type
         form.title = state.job.title

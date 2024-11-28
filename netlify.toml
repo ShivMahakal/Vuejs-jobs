@@ -1,5 +1,6 @@
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true
+[build]
+  functions = "netlify/functions"
+
+[dev]
+  functions = "netlify/functions"
+  command = "vite"
