@@ -24,7 +24,7 @@ defineProps({
 //  function to fetch the detail when the component is mounted
 const getJobsListing = async () => {
     try {
-        const response = await axios.get("/api/jobs")
+        const response = await axios.get(`${apiUrl}/api/jobs`)
         state.jobs = response?.data
     } catch (error) {
         console.error(error, "Error fetching jobs")

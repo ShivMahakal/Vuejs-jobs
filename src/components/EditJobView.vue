@@ -47,7 +47,7 @@ const handleSubmit = async() => {
     // console.log(newJob,"newJob")
 
     try {
-        const response = await axios.put(`/api/jobs/${jobId}`, updatedJob);
+        const response = await axios.put(`${apiUrl}/api/jobs/${jobId}`, updatedJob);
         toast.success('Job updated successfully')
          router.push(`/jobs/${response.data.id}`)
         
@@ -61,7 +61,7 @@ const handleSubmit = async() => {
 // function to fetch the job detail by id
 const getJobById = async () => {
     try {
-        const response = await axios.get(`/api/jobs/${jobId}`)
+        const response = await axios.get(`${apiUrl}/api/jobs/${jobId}`)
         state.job = response.data
         form.type = state.job.type
         form.title = state.job.title
