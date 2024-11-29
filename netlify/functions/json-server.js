@@ -1,17 +1,19 @@
 const jsonServer = require('json-server');
 const path = require('path');
 
-// Create JSON Server instance
-const server = jsonServer.create();
+// Use JSON Server router directly
 const router = jsonServer.router(path.join(__dirname, '../../jobs.json')); // Path to your db.json file
 const middlewares = jsonServer.defaults();
 
-// Use default middlewares (logger, static, CORS, etc)
-server.use(middlewares);
-server.use(router);
-
-// Export the handler for Netlify functions
+// Create a function handler
 exports.handler = async (event, context) => {
+  const server = jsonServer.create();
+
+  // Set up middleware and router
+  server.use(middlewares);
+  server.use(router);
+
+  // Since Netlify is running in a serverless environment, we need to handle the request manually.
   return new Promise((resolve, reject) => {
     server(event, context, (response) => {
       resolve({
