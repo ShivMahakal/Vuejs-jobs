@@ -1,6 +1,8 @@
 [build]
-  functions = "netlify/functions"
+  functions = "netlify/functions"  # Path to the functions directory
 
-[dev]
-  functions = "netlify/functions"
-  command = "vite"
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/json-server"
+  status = 200
+  force = true
