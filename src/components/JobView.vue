@@ -19,7 +19,7 @@ const jobId = route?.params?.id
 //  function to fetch the detail when the component is mounted
 const getJobsListing = async () => {
     try {
-        const response = await axios.get(`${apiUrl}/api/jobs/${jobId}`)
+        const response = await axios.get(`/api/jobs/${jobId}`)
         state.job = response?.data
     } catch (error) {
         console.error(error, "Error fetching jobs")

@@ -40,7 +40,7 @@ const handleSubmit = async() => {
     // console.log(newJob,"newJob")
 
     try {
-        const response = await axios.post(`${apiUrl}/api/jobs`, newJob);
+        const response = await axios.post(`/api/jobs`, newJob);
         toast.success('Job added successfully')
          router.push(`/jobs/${response.data.id}`)
         

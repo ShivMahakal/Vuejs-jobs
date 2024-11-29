@@ -47,7 +47,7 @@ const handleSubmit = async() => {
     // console.log(newJob,"newJob")
 
     try {
-        const response = await axios.put(`${apiUrl}/api/jobs/${jobId}`, updatedJob);
+        const response = await axios.put(`/api/jobs/${jobId}`, updatedJob);
         toast.success('Job updated successfully')
          router.push(`/jobs/${response.data.id}`)
         
